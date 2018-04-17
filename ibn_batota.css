@@ -1,0 +1,21 @@
+
+  body {
+      background-color: #141414;
+  }
+  body {
+      margin: 20;
+      padding: 50px;
+      font-size: 13px;
+      font-family: Palatino Linotype;
+      color: fcefd0;
+  }
+  h1 {
+      font-size: 50px;
+  }
+
+  #mapid {
+    height: 70%;
+}
+ 
+  
+  
