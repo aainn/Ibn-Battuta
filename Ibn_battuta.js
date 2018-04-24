@@ -22,6 +22,7 @@ ajax.onload = function() {
        for (var i=0; i<list.length; i++){
         var name= list[i].name;
         countryDetalis[name]=list[i];
+        
     var countryDataList=document.createElement('option')
     countryDataList.className='NamesOfCountries';
                 countryDataList.innerHTML= `
@@ -31,6 +32,11 @@ ajax.onload = function() {
        console.log(list);
 };
 ajax.send();
+//To get the name of the country in the console Log
+function Countryname (){
+    var nameValue = document.getElementById('names').value;
+    console.log(nameValue)
+}
 
 
 
