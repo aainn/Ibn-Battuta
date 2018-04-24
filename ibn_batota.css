@@ -1,6 +1,6 @@
 
   body {
-      background-color: #141414;
+      background-color: rgb(41, 6, 97);
   }
   body {
       margin: 20;
@@ -11,11 +11,51 @@
   }
   h1 {
       font-size: 50px;
+      font-family: 'Courier New', Courier, monospace;
   }
 
   #mapid {
-    height: 70%;
+    height: 100%;
 }
  
-  
-  
+ head {
+
+  }
+body,td,th {
+	font-size: 15px;
+	font-family: Palatino Linotype;
+	color: fcefd0;
+}
+h1 {
+	font-size: 40px;
+}
+
+
+a:link {
+	color: #fcefd0;
+	text-decoration: none;
+}
+a:visited {
+	color: #fcefd0;
+	text-decoration: none;
+}
+a:hover {
+	color: #fcefd0;
+	text-decoration: none;
+}
+a:active {
+	color: #fcefd0;
+	text-decoration: none;
+}
+.search-box-input{
+display: inline-flex;
+font-size: 20px;
+
+}
+.search-box-input{
+    font-size: inherit;
+    border: 0.2em solid #7e7;
+    border-radius: 0.5em 0 0 0.5em;
+    background-color: white;
+    border-left:0;
+    padding: 0 0.75em;}
