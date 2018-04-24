@@ -12,24 +12,27 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
     accessToken: mapBoxToken
 }).addTo(mymap);
 
-
+var countryDetalis= {}
 
 var ajax = new XMLHttpRequest();
 ajax.open("GET", "https://restcountries.eu/rest/v2/all", true);
 ajax.onload = function() {
-    var list = JSON.parse(ajax.responseText).map(function(i) { return i.name; });
+    var list = JSON.parse(ajax.responseText);
        var namegeter=document.querySelector("#countrylistoption #countryList");
        for (var i=0; i<list.length; i++){
-        var names= list[i];
+        var name= list[i].name;
+        countryDetalis[name]=list[i];
     var countryDataList=document.createElement('option')
     countryDataList.className='NamesOfCountries';
                 countryDataList.innerHTML= `
-            ${names}`;
+            ${name}`;
             namegeter.appendChild(countryDataList);
             }
        console.log(list);
 };
 ajax.send();
+
+
 
 
 
