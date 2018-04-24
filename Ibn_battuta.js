@@ -14,6 +14,30 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 
 
+var ajax = new XMLHttpRequest();
+ajax.open("GET", "https://restcountries.eu/rest/v2/all", true);
+ajax.onload = function() {
+    var list = JSON.parse(ajax.responseText).map(function(i) { return i.name; });
+       var namegeter=document.querySelector("#countrylistoption #countryList");
+       for (var i=0; i<list.length; i++){
+        var names= list[i];
+    var countryDataList=document.createElement('option')
+    countryDataList.className='NamesOfCountries';
+                countryDataList.innerHTML= `
+            ${names}`;
+            namegeter.appendChild(countryDataList);
+            }
+       console.log(list);
+};
+ajax.send();
+
+
+
+
+
+
+
+
 
 // var marker = L.marker(myLocation).addTo(mymap);
 
@@ -30,14 +54,12 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 // circle.bindPopup(`I'm a circle.`);
 
 
-var popup = L.popup();  
-function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(mymap);
-}
+// var popup = L.popup();  
+// function onMapClick(e) {
+//     popup
+//         .setLatLng(e.latlng)
+//         .setContent("You clicked the map at " + e.latlng.toString())
+//         .openOn(mymap);
+// }
 
-mymap.on('click', onMapClick);
-
-
+// mymap.on('click', onMapClick);
