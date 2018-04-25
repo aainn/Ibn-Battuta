@@ -44,6 +44,7 @@ function countryName() {
     flagEl.src = flag;
     flagEl.alt = nameValue;
     infoEl.appendChild(flagEl);
+    mymap.removeLayer(marker)
     latlnggeo();
 }
 
@@ -52,21 +53,19 @@ var myLocation = [51, 9];
 function latlnggeo() {
     var nameValue = document.getElementById('names').value;
     var geoLocation = countryDetails[nameValue].latlng;
-   data1= geoLocation[0];
-   data2= geoLocation[1];
-      console.log(geoLocation);
-    // mymap.setView(new L.LatLng(geoLocation));
-    mymap.panTo(new L.LatLng(data1, data2));
-    
-    var marker2 = new L.marker(new L.LatLng(data1, data2)).addTo(mymap);
-    marker2.bindPopup(nameValue).openPopup();
+    LatLng1 = geoLocation[0];
+    LatLng2 = geoLocation[1];
+    console.log(geoLocation);
+    mymap.setView(new L.LatLng(LatLng1, LatLng2), 6);
+    marker = new L.marker(new L.LatLng(LatLng1, LatLng2)).addTo(mymap);
+    marker.bindPopup("<strong>" + nameValue + "</strong>").openPopup();
 }
 
 
 var mymap = L.map('mapid').setView(myLocation, 6);
-var marker = L.marker([51.5, 9]).addTo(mymap);
+var marker = L.marker([51, 9]).addTo(mymap);
+marker.bindPopup("<strong>" + "Germany" + "</strong>").openPopup();
 var mapBoxToken = 'pk.eyJ1IjoicGF1bGJvZWNrIiwiYSI6ImNqZmo5Y3dsMzZjd2gyeHBkeHp0Mmt6eXQifQ.8H4_R2UaKJZ_rWH1Z3vdFg';
-
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
