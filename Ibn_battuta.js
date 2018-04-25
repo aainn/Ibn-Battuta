@@ -1,18 +1,8 @@
 console.log('Starting leaflet test');
 
-var myLocation = [39.9847915, 32.1776579];
-var mymap = L.map('mapid').setView(myLocation, 1);
 
-var mapBoxToken = 'pk.eyJ1IjoicGF1bGJvZWNrIiwiYSI6ImNqZmo5Y3dsMzZjd2gyeHBkeHp0Mmt6eXQifQ.8H4_R2UaKJZ_rWH1Z3vdFg';
+var countryDetails = {};
 
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox.streets',
-    accessToken: mapBoxToken
-}).addTo(mymap);
-
-var countryDetails = {}
 
 var ajax = new XMLHttpRequest();
 ajax.open("GET", "https://restcountries.eu/rest/v2/all", true);
@@ -22,31 +12,66 @@ ajax.onload = function () {
     for (var i = 0; i < list.length; i++) {
         var name = list[i].name;
         countryDetails[name] = list[i];
-
         var countryDataList = document.createElement('option')
         countryDataList.className = 'NamesOfCountries';
         countryDataList.innerHTML = `
             ${name}`;
         namegeter.appendChild(countryDataList);
+
     }
     console.log(list);
 };
 ajax.send();
+var input = document.getElementById("names");
+input.addEventListener("keyup", function (event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        submit();
+    }
+});
 //To get the name of the country in the console Log
-function Countryname() {
-    var infoEl = document.getElementById('infoCountry');
-    var nameValue = document.getElementById('names').value;
-    console.log(countryDetails[nameValue].flag)
-    var flag = countryDetails[nameValue].flag;
-    var flagEl = document.createElement('img')
-    flagEl.className = 'flag';
-    flagEl.src = flag;
-    infoEl.appendChild(flagEl);
+function submit() {
+    document.getElementById("flag").innerHTML = "";
+    countryName();
+}
+function countryName() {
 
+    var infoEl = document.getElementById('flag');
+    var nameValue = document.getElementById('names').value;
+    var flag = countryDetails[nameValue].flag;
+    var flagEl = document.createElement('img');
+    flagEl.className = 'flagimg';
+    flagEl.src = flag;
+    flagEl.alt = nameValue;
+    infoEl.appendChild(flagEl);
+    latlnggeo();
+}
+
+var myLocation = [51, 9];
+
+function latlnggeo() {
+    var nameValue = document.getElementById('names').value;
+    var geoLocation = countryDetails[nameValue].latlng;
+   data1= geoLocation[0];
+   data2= geoLocation[1];
+      console.log(geoLocation);
+    // mymap.setView(new L.LatLng(geoLocation));
+    mymap.panTo(new L.LatLng(data1, data2));
+    
 }
 
 
 
+var mymap = L.map('mapid').setView(myLocation, 6);
+
+var mapBoxToken = 'pk.eyJ1IjoicGF1bGJvZWNrIiwiYSI6ImNqZmo5Y3dsMzZjd2gyeHBkeHp0Mmt6eXQifQ.8H4_R2UaKJZ_rWH1Z3vdFg';
+
+L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.streets',
+    accessToken: mapBoxToken
+}).addTo(mymap);
 
 
 

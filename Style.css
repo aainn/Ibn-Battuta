@@ -20,7 +20,7 @@
       float: right;
       border: 2px  #0d2f72 solid;
       width: 70%;
-    height: 400px;
+    height: 550px;
 }
 .mainsearch
 {
@@ -56,10 +56,7 @@
 
 #infoCountry{
 width: 29%;
-height: 400px;
-border: #0d2f72 2px solid;
 font-family: 'Titillium Web', sans-serif;
-font-size: 16px;
 float: left;
 }
 #infobox{
@@ -91,9 +88,34 @@ font-size: 16px;
 {
     display: block;
 }
-.flag
+#infoboxdiv
 {
-   
-    height: 100px;
-    
+    display: block;
+    width: 100%;
+    height: 315px;
+    border: 2px solid #0d2f72;
+    color: #0d2f72;
+    float: left;
+    margin-bottom: 7px;
+}
+#flag{
+  background-color: #d8d8d8;
+    display: block;
+    width: 100%;
+    height: 224px;
+    border: 2px solid #0d2f72;
+    color: #0d2f72;
+    float: left;
+}
+
+
+.flagimg
+{
+    max-width: 95%;
+    max-height:95%;
+    width: auto;
+    height: auto;
+    margin: 2.5%;
+    vertical-align: auto;
+
 }
