@@ -5,16 +5,21 @@
       font-size: 13px;
   }
   .title {
-      padding: 15px;
     color: #ffff;
       font-size: 50px;
       margin: auto;
       text-align: center;
       font-family: 'Titillium Web', sans-serif;
-      width: 50%;
-      background-color: #0d2f72;
+      width: 100%;
+      color: #0d2f72;
+      border:  #0d2f72 3px solid;
 
   }
+
+#countrylistoption{
+    display: block;
+    width: 100%;
+}
 
   #mapid {
       float: right;
@@ -33,6 +38,20 @@
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+}
+#nameOfCountry{
+
+    display: block;
+    max-height: 20px;
+    width: 66%;
+    float: right;
+    border: 2px #0d2f72 solid;
+    font-size: 16px;
+    margin: 6px;
+    padding: 12px 21px 12px 20px;
+}
+#NameOftheCountry{
+    display: inline;
 }
 .mainsearch:focus{
     border: 3px solid #555;
@@ -96,8 +115,49 @@ font-size: 16px;
     border: 2px solid #0d2f72;
     color: #0d2f72;
     float: left;
+    font-size: 16px;
+    font-family: 'Titillium Web', sans-serif;
     margin-bottom: 7px;
 }
+#capitalCitymain,
+#languagesmain,
+#currenciesmain,
+#timezonesmain{
+    display: inline-block;
+    position: relative;
+    width:100%;
+    border-bottom: 2px solid #0d2f72; 
+}
+#regionmain{
+    display: inline-block;
+    position: relative;
+    width:100%;
+}
+
+#capitalCity,
+#language,
+#currency,
+#timezone,
+#region{
+    display: block;
+    float: right;
+    color: darkred;
+    width: 50%;
+    padding: 0px 0px 0px 10px;
+}
+
+
+#capitalCityinfo,
+#languageinfo,
+#currenciesinfo,
+#timezonesinfo,
+#regioninfo{
+    display: block;
+    float: left;
+    width: 40%;
+    padding: 0px 0px 0px 10px;
+}
+
 #flag{
   background-color: #d8d8d8;
     display: block;
@@ -108,7 +168,20 @@ font-size: 16px;
     float: left;
 }
 
-
+#article
+{   width: 100%;
+    display: inline-block;
+    border: #0d2f72 2px solid;
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: 'Titillium Web', sans-serif;
+    min-height: 50px;
+  
+}
+#article p{
+   padding: 10px 20px 10px 20px ; 
+   
+}
 .flagimg
 {
     max-width: 95%;
@@ -117,5 +190,5 @@ font-size: 16px;
     height: auto;
     margin: 2.5%;
     vertical-align: auto;
-
 }
+

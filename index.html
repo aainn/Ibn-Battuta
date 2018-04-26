@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,33 +6,149 @@
     <link rel="stylesheet" href="Style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
         crossorigin="" />
-    
+
 
 </head>
 
 <body>
     <h1 class="title">Ibn Battuta</h1>
+
     <div id="countrylistoption">
-        <input id="names" list="countryList" class="mainsearch" list="mainsearch"  placeholder="Search.." name="mainsearch">
-        <datalist id="countryList" > </datalist>
-        <button class="searchbutton" type="button" type='reset'onclick='submit()'>Submit</button>
-          
+        <input id="names" list="countryList" class="mainsearch" list="mainsearch" placeholder="Search.." name="mainsearch">
+        <datalist id="countryList"> </datalist>
+        <button class="searchbutton" type="button" type='reset' onclick='submit()'>Submit</button>
+        <div id="nameOfCountry"></div>
+
     </div>
-   
 
-<div>
-    <div id="infoCountry">
-        <div id="infoboxdiv">
-<textarea  id="infobox" readonly>Germany is a Western European country with a landscape of forests, rivers, mountain ranges and North Sea beaches. It has over 2 millennia of history. Berlin, its capital, is home to art and nightlife scenes, the Brandenburg Gate and many sites relating to WWII. Munich is known for its Oktoberfest and beer halls, including the 16th-century Hofbräuhaus. Frankfurt, with its skyscrapers, houses the European Central Bank.</textarea>
-</textarea>
-</div>
-<div id="flag">
 
-</div>
-  </div>
-    <div id="mapid"></div>
-</div>
-<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" crossorigin=""></script>
+    <div>
+        <div id="infoCountry">
+            <div id="infoboxdiv">
+                <div id="capitalCitymain">
+                    <div id="capitalCityinfo">
+                        <p>Capital City: </p>
+                    </div>
+                    <div id="capitalCity"></div>
+                </div>
+                <div id="languagesmain">
+                    <div id="languageinfo">
+                        <p>Language: </p>
+                    </div>
+                    <div id="language"></div>
+                </div>
+                <div id="currenciesmain">
+                    <div id="currenciesinfo">
+                        <p>Currencies: </p>
+                    </div>
+                    <div id="currency"></div>
+                </div>
+                <div id="timezonesmain">
+                    <div id="timezonesinfo">
+                        <p>Time zone: </p>
+                    </div>
+                    <div id="timezone"></div>
+                </div>
+                <div id="regionmain">
+                    <div id="regioninfo">
+                        <p>Region: </p>
+                    </div>
+                    <div id="region"></div>
+                </div>
+
+            </div>
+            <div id="flag">
+
+            </div>
+        </div>
+        <div id="mapid"></div>
+    </div>
+    <div id="countrylistoption">
+        <div id="article">
+            <p>
+                <span style="font-size: small;">
+                    <span id="coordinates">Coordinates:
+                        <span class="plainlinks nourlexpansion">
+                            <span class="geo-default">
+                                <span class="geo-dms" title="Maps, aerial photos, and other data for this location">
+                                    <span class="latitude">51°N</span>
+                                    <span class="longitude">9°E</span>
+                                </span>
+                            </span>
+                            <span class="geo-multi-punct">﻿ / ﻿</span>
+                            <span class="geo-nondefault">
+                                <span class="geo-dec" title="Maps, aerial photos, and other data for this location">51°N 9°E</span>
+                                <span style="display:none">﻿ /
+                                    <span class="geo">51; 9</span>
+                                </span>
+                            </span>
+                        </span>
+                    </span>
+                </span>
+            </p>
+            <p style="font-size:11px;text-align:left;margin-left:1.2ex;margin-top:0px;margin-bottom:0px;line-height:1.15em;">–&nbsp;in Europe
+                <span style="font-size:8px;">
+                    <span class="nowrap">&nbsp;&nbsp;</span>
+                </span>(green &amp;&nbsp;dark grey)
+                <br> –&nbsp;in the European Union
+                <span style="font-size:8px;">
+                    <span class="nowrap">&nbsp;&nbsp;</span>
+                </span>(green)</p>
+            <p>
+                <b>Germany</b> (German:
+                <i>
+                    <span lang="de">Deutschland</span>
+                </i>
+                <span title="Representation in the International Phonetic Alphabet (IPA)" class="IPA">[ˈdɔʏtʃlant]</span>), officially the
+                <b>Federal Republic of Germany</b> (German:
+                <i>
+                    <span lang="de">Bundesrepublik Deutschland</span>
+                </i>,
+                <span class="unicode haudio">
+                    <span class="fn">
+                        <span style="white-space:nowrap">
+                            <img alt="About this sound" src="//upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Loudspeaker.svg/11px-Loudspeaker.svg.png"
+                                width="11" height="11" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Loudspeaker.svg/17px-Loudspeaker.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Loudspeaker.svg/22px-Loudspeaker.svg.png 2x"
+                                data-file-width="20" data-file-height="20">&nbsp;</span>listen</span>&nbsp;
+                    <small class="metadata audiolinkinfo" style="cursor:help;">(
+                        <span style="cursor:help;">help</span>·
+                        <span style="cursor:help;">info</span>)</small>
+                </span>), is a federal parliamentary republic in central-western Europe. It includes 16 constituent states, covers
+                an area of 357,021 square kilometres (137,847&nbsp;sq&nbsp;mi), and has a largely temperate seasonal climate.
+                With about 82 million inhabitants, Germany is the most populous member state of the European Union. Germany's
+                capital and largest metropolis is Berlin, while its largest conurbation is the Ruhr, with its main centres
+                of Dortmund and Essen. The country's other major cities are Hamburg, Munich, Cologne, Frankfurt, Stuttgart,
+                Düsseldorf, Leipzig, Bremen, Dresden, Hannover, and Nuremberg.</p>
+            <p>Various Germanic tribes have inhabited the northern parts of modern Germany since classical antiquity. A region
+                named Germania was documented before 100&nbsp;AD. During the Migration Period, the Germanic tribes expanded
+                southward. Beginning in the 10th century, German territories formed a central part of the Holy Roman Empire.
+                During the 16th century, northern German regions became the centre of the Protestant Reformation. After the
+                collapse of the Holy Roman Empire, the German Confederation was formed in 1815. The German revolutions of
+                1848–49 resulted in the Frankfurt Parliament establishing major democratic rights.</p>
+            <p>In 1871, Germany became a nation state when most of the German states unified into the Prussian-dominated German
+                Empire. After World War I and the revolution of 1918–19, the Empire was replaced by the parliamentary Weimar
+                Republic. The Nazi seizure of power in 1933 led to the establishment of a dictatorship, World War II and
+                the Holocaust. After the end of World War II in Europe and a period of Allied occupation, two German states
+                were founded: West Germany, formed of the American, British and French occupation zones, and East Germany,
+                formed of the Soviet occupation zone. Following the Revolutions of 1989 that ended communist rule in Central
+                and Eastern Europe, the country was reunified on 3 October 1990.</p>
+            <p>In the 21st century, Germany is a great power with a strong economy; it has the world's 4th largest economy by
+                nominal GDP, and the 5th largest by PPP. As a global leader in several industrial and technological sectors,
+                it is both the world's third-largest exporter and importer of goods. A developed country with a very high
+                standard of living, it upholds a social security and universal health care system, environmental protection,
+                and a tuition-free university education.</p>
+            <p>The Federal Republic of Germany was a founding member of the European Economic Community in 1957 and the European
+                Union in 1993. It is part of the Schengen Area and became a co-founder of the Eurozone in 1999. Germany is
+                a member of the United Nations, NATO, the G7, the G20, and the OECD. Known for its rich cultural history,
+                Germany has been continuously the home of influential and successful artists, philosophers, musicians, sportspeople,
+                entrepreneurs, scientists, engineers, and inventors.
+                <br>
+            </p>
+        </div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" crossorigin=""></script>
     <script src='./Ibn_battuta.js' type="text/javascript"></script>
 </body>
 
