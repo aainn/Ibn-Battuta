@@ -173,6 +173,9 @@ function checkInput() {
       }
     }  
   }
+  else {
+    alert("Please search for a valid country")
+  }
 }
 function submit() {
   checkInput();
