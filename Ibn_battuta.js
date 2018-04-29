@@ -166,6 +166,7 @@ input.addEventListener("keyup", function (event) {
   }
 });
 function checkInput() {
+  var name = input.value;
   for (var i = 0; i < list.length; i++) {
     if (name !== list[i].name) {
       console.log("did not find the country", list[i].name, name);
