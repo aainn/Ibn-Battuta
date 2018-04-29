@@ -209,7 +209,7 @@ function countryName() {
   var flagEl = document.createElement("img");
   flagEl.className = "flagimg";
   flagEl.src = flag;
-  flagEl.alt = nameValue;
+  flagEl.alt = userInput;
   infoEl.appendChild(flagEl);
   mymap.removeLayer(marker);
 }
