@@ -4,7 +4,7 @@ var countryDetails = {};
 var list;
 var ajax = new XMLHttpRequest();
 ajax.open("GET", "https://restcountries.eu/rest/v2/all", true);
-ajax.onload = function() {
+ajax.onload = function () {
   list = JSON.parse(ajax.responseText);
   var namegeter = document.querySelector("#countrylistoption #countryList");
   for (var i = 0; i < list.length; i++) {
@@ -139,11 +139,11 @@ function infoElement() {
     url: urlInfo,
     contentType: "application/json; charset=utf-8",
     dataType: "json",
-    success: function(data, textStatus, jqXHR) {
+    success: function (data, textStatus, jqXHR) {
       var markup = data.parse.text["*"];
       var info = $("<div></div>").html(markup);
 
-      info.find("a").each(function() {
+      info.find("a").each(function () {
         $(this).replaceWith($(this).html());
       });
 
@@ -154,12 +154,12 @@ function infoElement() {
 
       $("#article").html($(info).find("p"));
     },
-    error: function(errorMessage) {}
+    error: function (errorMessage) { }
   });
 }
 
 var input = document.getElementById("names");
-input.addEventListener("keyup", function(event) {
+input.addEventListener("keyup", function (event) {
   event.preventDefault();
   if (event.keyCode === 13) {
     submit();
@@ -168,7 +168,7 @@ input.addEventListener("keyup", function(event) {
 function checkInput() {
   for (var i = 0; i < list.length; i++) {
     if (name !== list[i].name) {
-        console.log("did not find the country", list[i].name, name);
+      console.log("did not find the country", list[i].name, name);
       continue;
     } else {
       console.log("found the country");
@@ -197,14 +197,15 @@ function submit() {
   searchinfo();
   latlnggeo();
 }
-  function getCurentUserInput() {
-      var nameValue = document.getElementById("names").value;
-      return nameValue;
-  }
+function getCurrentUserInput() {
+  var nameValue = document.getElementById("names").value;
+  return nameValue;
+}
 
 function countryName() {
+  var userInput = getCurrentUserInput();
   var infoEl = document.getElementById("flag");
-  var flag = countryDetails[nameValue].flag;
+  var flag = countryDetails[userInput].flag;
   var flagEl = document.createElement("img");
   flagEl.className = "flagimg";
   flagEl.src = flag;
