@@ -1,5 +1,3 @@
-console.log("Starting leaflet test");
-
 var countryDetails = {};
 var list;
 var ajax = new XMLHttpRequest();
@@ -16,7 +14,6 @@ ajax.onload = function () {
             ${name}`;
     namegeter.appendChild(countryDataList);
   }
-  console.log(list);
 };
 ajax.send();
 
@@ -129,10 +126,8 @@ function searchinfo() {
     "http://en.wikipedia.org/w/api.php?action=parse&format=json&prop=text&section=0&page=";
   urlInfo += `${infoName}&callback=?`;
 
-  console.log(urlInfo);
   infoElement();
 }
-
 function infoElement() {
   $.ajax({
     type: "GET",
@@ -157,7 +152,6 @@ function infoElement() {
     error: function (errorMessage) { }
   });
 }
-
 var input = document.getElementById("names");
 input.addEventListener("keyup", function (event) {
   event.preventDefault();
@@ -167,17 +161,19 @@ input.addEventListener("keyup", function (event) {
 });
 function checkInput() {
   var name = input.value;
-  for (var i = 0; i < list.length; i++) {
-    if (name !== list[i].name) {
-      console.log("did not find the country", list[i].name, name);
-      continue;
-    } else {
-      console.log("found the country");
-      break;
-    }
+  if (name.length > 0){
+    name = name[0].toUpperCase() + name.substring(1).toLowerCase();
+    for (var i = 0; i < list.length; i++) {
+      if (name !== list[i].name) {
+        console.log("did not find the country: " + name + ", current value: " + list[i].name);
+        continue;
+      } else {
+        console.log("found the country " + name);
+        break;
+      }
+    }  
   }
 }
-//To get the name of the country in the console Log
 function submit() {
   checkInput();
   document.getElementById("flag").innerHTML = "";
@@ -283,7 +279,6 @@ function latlnggeo() {
   var geoLocation = countryDetails[nameValue].latlng;
   LatLng1 = geoLocation[0];
   LatLng2 = geoLocation[1];
-  console.log(geoLocation);
   mymap.setView(new L.LatLng(LatLng1, LatLng2), 6);
   marker = new L.marker(new L.LatLng(LatLng1, LatLng2)).addTo(mymap);
   marker.bindPopup("<strong>" + nameValue + "</strong>").openPopup();
