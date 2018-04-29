@@ -169,12 +169,12 @@ function checkInput() {
         continue;
       } else {
         console.log("found the country " + name);
-        break;
+        return name;
       }
     }  
   }
   else {
-    alert("Please search for a valid country")
+    alert("Please search for a valid country");
   }
 }
 function submit() {
@@ -197,13 +197,10 @@ function submit() {
   searchinfo();
   latlnggeo();
 }
-function getCurrentUserInput() {
-  var nameValue = document.getElementById("names").value;
-  return nameValue;
-}
+
 
 function countryName() {
-  var userInput = getCurrentUserInput();
+  var userInput = checkInput();
   var infoEl = document.getElementById("flag");
   var flag = countryDetails[userInput].flag;
   var flagEl = document.createElement("img");
@@ -215,7 +212,7 @@ function countryName() {
 }
 function capitalCity() {
   var capitalCity = document.getElementById("capitalCity");
-  var capitalName = document.getElementById("names").value;
+  var capitalName = checkInput();
   var capital = countryDetails[capitalName].capital;
   var capitalEl = document.createElement("p");
   capitalEl.className = "capital";
@@ -225,7 +222,7 @@ function capitalCity() {
 }
 function language() {
   var languageID = document.getElementById("language");
-  var languageName = document.getElementById("names").value;
+  var languageName = checkInput();
   var language = countryDetails[languageName].languages[0].name;
   var languageEl = document.createElement("p");
   languageEl.className = "language";
@@ -235,7 +232,7 @@ function language() {
 }
 function currency() {
   var currencyId = document.getElementById("currency");
-  var currencyName = document.getElementById("names").value;
+  var currencyName = checkInput();
   var currency = countryDetails[currencyName].currencies[0].name;
   var currencyEl = document.createElement("p");
   currencyEl.className = "currency";
@@ -245,7 +242,7 @@ function currency() {
 }
 function timezone() {
   var timezoneId = document.getElementById("timezone");
-  var timezoneName = document.getElementById("names").value;
+  var timezoneName = checkInput();
   var timezone = countryDetails[timezoneName].timezones[0];
   var timezoneEl = document.createElement("p");
   timezoneEl.className = "currency";
@@ -256,7 +253,7 @@ function timezone() {
 
 function region() {
   var regionId = document.getElementById("region");
-  var regionName = document.getElementById("names").value;
+  var regionName = checkInput();
   var region = countryDetails[regionName].region;
   var regionEl = document.createElement("p");
   regionEl.className = "currency";
@@ -266,7 +263,7 @@ function region() {
 }
 function nameOfCountry() {
   var countryNameId = document.getElementById("nameOfCountry");
-  var countryName = document.getElementById("names").value;
+  var countryName = checkInput();
   var country = countryDetails[countryName].name;
   var countryNameEl = document.createElement("h1");
   countryNameEl.id = "NameOftheCountry";
@@ -278,7 +275,7 @@ function nameOfCountry() {
 var myLocation = [51, 9];
 
 function latlnggeo() {
-  var nameValue = document.getElementById("names").value;
+  var nameValue = checkInput();
   var geoLocation = countryDetails[nameValue].latlng;
   LatLng1 = geoLocation[0];
   LatLng2 = geoLocation[1];
